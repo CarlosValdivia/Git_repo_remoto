@@ -15,6 +15,8 @@ public class RecuperarUsuarioTest {
 		System.out.println("iniciando sesion Hibernate...");
 		session = factory.openSession();
 		Usuario user = (Usuario)session.get(Usuario.class, 34);
+		user.print();
+		session.close();
 		
 		
 

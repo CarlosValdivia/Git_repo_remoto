@@ -5,10 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.sanroman.accesodatos.hibernatetutorial.model.Domicilio;
 import com.sanroman.accesodatos.hibernatetutorial.model.Usuario;
 
 public class InsertarUsuarioTest {
-
 	public static void main(String[] args) {
 		//esta es la forma de obtener una factoria de sesiones
 		Session session = null;
@@ -22,9 +22,26 @@ public class InsertarUsuarioTest {
 		//comenzar una transaccion. devolvera un objeto de tipo Transaction
 		Transaction tr = session.beginTransaction();
 		//insertarB
+		//creando domicilio1
+		Domicilio d1 = new Domicilio();
+		d1.setTipoVia(1);
+		d1.setCodigoPostal(28020);
+		d1.setNombreVia("luna");
+		d1.setNumero(20);
+		
+		//creando domicilio1
+		Domicilio d2 = new Domicilio();
+		d2.setTipoVia(2);
+		d2.setCodigoPostal(28030);
+		d2.setNombreVia("sol");
+		d2.setNumero(20);
+		
+		//creando usuario
 		Usuario user = new Usuario();
 		user.setId(34);
-		user.setDomicilio("Calle luna 22");
+		//asignamos domicilio a usuario
+		user.setDomicilioPrincipal(d1);
+		user.setDomicilioSecundario(d2);
 		user.setEmail("luis@gmail.com");
 		user.setName("Jose");
 		user.setTelefono("913612980");
