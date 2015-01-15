@@ -29,7 +29,7 @@ public class InsertarUsuarioTest {
 		d1.setNombreVia("luna");
 		d1.setNumero(20);
 		
-		//creando domicilio1
+		//creando domicilio2
 		Domicilio d2 = new Domicilio();
 		d2.setTipoVia(2);
 		d2.setCodigoPostal(28030);
@@ -38,10 +38,9 @@ public class InsertarUsuarioTest {
 		
 		//creando usuario
 		Usuario user = new Usuario();
-		user.setId(34);
 		//asignamos domicilio a usuario
-		user.setDomicilioPrincipal(d1);
-		user.setDomicilioSecundario(d2);
+		user.getDomicilios().add(d1);
+		user.getDomicilios().add(d2);
 		user.setEmail("luis@gmail.com");
 		user.setName("Jose");
 		user.setTelefono("913612980");
